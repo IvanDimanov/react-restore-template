@@ -7,4 +7,3 @@ import initialState from './initialState'
 
 const store = Restore.create(initialState, actions)
 export default Restore.connect(Layout, store)
-

@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react'
+import React from 'react'
 import { DevTools } from 'react-restore'
 import { withStyles } from 'material-ui/styles'
 

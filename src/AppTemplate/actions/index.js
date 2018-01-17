@@ -13,6 +13,6 @@ importAll(require.context('../../', true, /actions\.js$/))
 
 /* Combine all actions into one object */
 let actions = { ...common }
-Object.keys(cache).forEach((key) => (actions = { ...actions, ...cache[key]}))
+Object.keys(cache).forEach((key) => (actions = { ...actions, ...cache[key] }))
 
 export default actions

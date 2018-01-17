@@ -39,7 +39,7 @@ const env = envFile
       [key]: value
     }
   })
-  .reduce((item, obj) => ({ ...obj, ...item}), {})
+  .reduce((item, obj) => ({ ...obj, ...item }), {})
 
 /**
  * Always provide only a clone but never the original
