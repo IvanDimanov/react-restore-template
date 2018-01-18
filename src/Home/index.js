@@ -1,4 +1,5 @@
 import React from 'react'
+import { withStyles } from 'material-ui/styles'
 
 import Grid from 'material-ui/Grid'
 
@@ -29,10 +30,16 @@ const Content = () => <div>
   </ul>
 </div>
 
-const Home = () => <Grid container justify='center'>
+const styles = (theme) => ({
+  GridContainer: {
+    margin: theme.spacing.unit * -2
+  }
+})
+
+const Home = ({ classes }) => <Grid container justify='center' className={classes.GridContainer}>
   <Grid item>
     <Content />
   </Grid>
 </Grid>
 
-export default Home
+export default withStyles(styles)(Home)
