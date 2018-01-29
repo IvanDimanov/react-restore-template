@@ -1,10 +1,7 @@
 import React from 'react'
-import { withStyles } from 'material-ui/styles'
+import CenteredGrid from 'common/CenteredGrid'
 
-import Grid from 'material-ui/Grid'
-
-const Content = () => <div>
-  <br />
+const Home = () => <CenteredGrid>
   <h1>React Restore template</h1>
   <p>Production ready setup for React + Restore</p>
   <br />
@@ -28,18 +25,6 @@ const Content = () => <div>
     <li>React app with routing and Material UI v1 - <a href='https://material-ui-next.com' rel='nofollow'>https://material-ui-next.com</a></li>
     <li>Restore state management modular architecture - <a href='https://github.com/floating/restore'>https://github.com/floating/restore</a></li>
   </ul>
-</div>
+</CenteredGrid>
 
-const styles = (theme) => ({
-  GridContainer: {
-    margin: theme.spacing.unit * -2
-  }
-})
-
-const Home = ({ classes }) => <Grid container justify='center' className={classes.GridContainer}>
-  <Grid item>
-    <Content />
-  </Grid>
-</Grid>
-
-export default withStyles(styles)(Home)
+export default Home

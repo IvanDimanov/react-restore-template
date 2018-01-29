@@ -10,6 +10,7 @@ const Header = () => <AppBar
 >
   <Toolbar>
     <LinkButton path='/' label='Home' />
+    <LinkButton path='/avatar' label='Avatar' />
     <LinkButton path='/contacts' label='Contacts' />
     <LinkButton path='/projects' label='Projects' />
   </Toolbar>

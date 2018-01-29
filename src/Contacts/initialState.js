@@ -1,8 +1,10 @@
 export default {
-  contact: {
-    id: '',
-    name: '',
-    description: ''
-  },
-  contacts: []
+  contactsStore: {
+    contact: {
+      id: '',
+      name: '',
+      description: ''
+    },
+    contacts: []
+  }
 }

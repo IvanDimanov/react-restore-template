@@ -1,7 +1,16 @@
-export function testContactsAction1 () {
+function testContactsAction1 () {
   return 1
 }
 
-export function testContactsAction2 () {
+function testContactsAction2 () {
   return 2
 }
+
+
+
+const contactsStore = {
+  testContactsAction1,
+  testContactsAction2
+}
+
+export { contactsStore }
