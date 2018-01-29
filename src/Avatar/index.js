@@ -9,31 +9,31 @@ class Avatar extends PureComponent {
     const isSearchLoading = this.store('avatarStore.isSearchLoading')
 
     return <CenteredGrid>
-        Avatar page
+      Avatar page
 
-        <br />
-        <br />
-        
-        <h3>searchName: {searchName}</h3>
+      <br />
+      <br />
 
-        <br />
-        <br />
-        <button onClick={() => this.store.avatarStore.searchForAvatar(searchName)}>
-          Search
-        </button>
+      <h3>searchName: {searchName}</h3>
 
-        <br />
-        <br />
-        <button onClick={() => this.store.avatarStore.clearSearch()}>
-          Clear
-        </button>
+      <br />
+      <br />
+      <button onClick={() => this.store.avatarStore.searchForAvatar(searchName)}>
+        Search
+      </button>
 
-        <br />
-        <br />
-        <h3>isSearchLoading: {isSearchLoading ? 'yes' : 'no'}</h3>
+      <br />
+      <br />
+      <button onClick={() => this.store.avatarStore.clearSearch()}>
+        Clear
+      </button>
 
-      </CenteredGrid>
-    }
+      <br />
+      <br />
+      <h3>isSearchLoading: {isSearchLoading ? 'yes' : 'no'}</h3>
+
+    </CenteredGrid>
+  }
 }
 
 export default connect(Avatar)

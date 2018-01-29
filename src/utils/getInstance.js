@@ -13,8 +13,8 @@
     getInstance( new Error()  )  =>  "Error"
     getInstance( new RegExp() )  =>  "RegExp"
 */
-function getInstance(variable) {
-  return Object.prototype.toString.call( variable ).replace('[object ', '').replace(']', '')
+function getInstance (variable) {
+  return Object.prototype.toString.call(variable).replace('[object ', '').replace(']', '')
 }
 
 export default getInstance

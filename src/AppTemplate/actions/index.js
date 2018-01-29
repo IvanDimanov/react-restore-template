@@ -29,15 +29,15 @@ function recursiveCreateAsyncObject (obj) {
     switch (instanceOf) {
       case 'Function':
         asyncObj[key] = item
-      break
+        break
 
       case 'AsyncFunction':
         asyncObj[key] = wrapAsync(item)
-      break
+        break
 
       case 'Object':
         asyncObj[key] = recursiveCreateAsyncObject(item)
-      break
+        break
     }
   })
 

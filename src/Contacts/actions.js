@@ -6,8 +6,6 @@ function testContactsAction2 () {
   return 2
 }
 
-
-
 const contactsStore = {
   testContactsAction1,
   testContactsAction2
