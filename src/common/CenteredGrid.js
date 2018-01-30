@@ -9,8 +9,8 @@ const styles = (theme) => ({
   }
 })
 
-const CenteredGrid = ({ children, classes }) => <Grid container justify='center' className={classes.GridContainer}>
-  <Grid item>
+const CenteredGrid = ({ children, classes, className }) => <Grid container justify='center' className={classes.GridContainer}>
+  <Grid item className={className}>
     {children}
   </Grid>
 </Grid>

@@ -1,3 +1,3 @@
 export function setAvatar (update, avatar) {
-  update('avatar', () => avatar)
+  update('avatar', () => avatar || {})
 }

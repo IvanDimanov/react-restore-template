@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react'
 import { connect } from 'react-restore'
 import { withStyles } from 'material-ui/styles'
 
+import Grid from 'material-ui/Grid'
 import TextField from 'material-ui/TextField'
 import Card, { CardActions, CardContent, CardMedia } from 'material-ui/Card'
 import Button from 'material-ui/Button'
@@ -10,6 +11,10 @@ import Typography from 'material-ui/Typography'
 import CenteredGrid from 'common/CenteredGrid'
 
 const styles = {
+  CenteredGrid: {
+    width: 1000
+  },
+
   Card: {
     display: 'inline-block',
     width: 150,
@@ -33,6 +38,7 @@ class Avatar extends PureComponent {
 
   renderUser = (result, index) => {
     const { classes } = this.props
+    const isSearchLoading = this.store('avatarStore.isSearchLoading')
 
     return <Card
       key={index}
@@ -45,22 +51,62 @@ class Avatar extends PureComponent {
       />
 
       <CardContent>
-        <Typography type='headline' component='h2'>
-          Lizard
-        </Typography>
+        <Typography type='headline' component='h2' noWrap>{result.login}</Typography>
 
-        <Typography component='p'>
-          Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-          across all continents except Antarctica
-        </Typography>
+        <Typography component='p'><b>Score:</b> {result.score}</Typography>
       </CardContent>
 
       <CardActions>
-        <Button size='small' color='primary'>
-          Share
+        <Button
+          size='small'
+          color='primary'
+          onClick={() => this.store.avatarStore.loadUserRepos(result.login)}
+          disabled={isSearchLoading}
+        >
+          Load Repos
         </Button>
-        <Button size='small' color='primary'>
-          Learn More
+
+        <Button
+          size='small'
+          color='primary'
+          onClick={() => this.store.setAvatar(result)}
+        >
+          Set as Avatar
+        </Button>
+      </CardActions>
+    </Card>
+  }
+
+  renderUserRepo = (repo, index) => {
+    const { classes } = this.props
+
+    return <Card
+      key={index}
+      className={classes.Card}
+    >
+      <CardContent>
+        <Typography type='headline' component='h2' noWrap>{repo.name}</Typography>
+        <Typography component='p'><b>Language: </b> {repo.language}</Typography>
+        <br />
+        <Typography component='p'>{repo.description}</Typography>
+      </CardContent>
+
+      <CardActions>
+        <Button
+          size='small'
+          color='primary'
+          onClick={() => window.open(repo.html_url)}
+        >
+          View Online
+        </Button>
+
+        <Button
+          size='small'
+          color='primary'
+          onClick={() => window.open(repo.homepage)}
+          disabled={!Boolean(repo.homepage)}
+        >
+          Home page
         </Button>
       </CardActions>
     </Card>
@@ -68,16 +114,18 @@ class Avatar extends PureComponent {
 
   render () {
     const { searchName } = this.state
+    const { classes } = this.props
     const isSearchLoading = this.store('avatarStore.isSearchLoading')
     const searchUsers = this.store('avatarStore.searchUsers')
+    const userRepos = this.store('avatarStore.userRepos')
 
-    return <CenteredGrid>
+    return <CenteredGrid className={classes.CenteredGrid}>
       <TextField
         type='search'
         label='Search GitHub User'
         value={searchName}
         onChange={this.setSearchName}
-        onKeyPress={(event) => event.key === 'Enter' ? this.store.avatarStore.searchForAvatar(searchName) : null}
+        onKeyPress={(event) => event.key === 'Enter' ? this.store.avatarStore.searchForUser(searchName) : null}
         disabled={isSearchLoading}
         autoFocus
       />
@@ -85,10 +133,16 @@ class Avatar extends PureComponent {
       <br />
       <br />
 
-      {searchUsers.length
-        ? searchUsers.map(this.renderUser)
-        : <Typography component='p'>No users found</Typography>
-      }
+      <Grid container>
+        <Grid item xs={7}>
+          {searchUsers.length
+            ? searchUsers.map(this.renderUser)
+            : <Typography component='p'>No users found</Typography>
+          }
+        </Grid>
+
+        <Grid item xs={5}>{userRepos.map(this.renderUserRepo)}</Grid>
+      </Grid>
     </CenteredGrid>
   }
 }
