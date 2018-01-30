@@ -104,7 +104,7 @@ class Avatar extends PureComponent {
           size='small'
           color='primary'
           onClick={() => window.open(repo.homepage)}
-          disabled={!Boolean(repo.homepage)}
+          disabled={!repo.homepage}
         >
           Home page
         </Button>

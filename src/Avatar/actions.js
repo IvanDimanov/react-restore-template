@@ -5,7 +5,7 @@ const MAX_RETURNED_RESULTS = 20
 async function searchForUser (update, searchName) {
   await update('avatarStore.isSearchLoading', () => true)
 
-  const { items = []} = await r2(`https://api.github.com/search/users?q=${searchName}`).json
+  const {items = []} = await r2(`https://api.github.com/search/users?q=${searchName}`).json
 
   await update('avatarStore.searchUsers', () => items.slice(0, MAX_RETURNED_RESULTS))
   await update('avatarStore.userRepos', () => [])

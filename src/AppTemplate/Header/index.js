@@ -23,7 +23,6 @@ class Header extends PureComponent {
     anchorEl: null
   }
 
-
   handleMenu = event => {
     const { currentTarget } = event
     this.setState((state) => ({ ...state, anchorEl: currentTarget }))
@@ -34,7 +33,7 @@ class Header extends PureComponent {
   }
 
   render () {
-    const { auth, anchorEl } = this.state
+    const { anchorEl } = this.state
     const open = Boolean(anchorEl)
     const { classes } = this.props
     const avatar = this.store('avatar')
