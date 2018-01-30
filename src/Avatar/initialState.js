@@ -1,7 +1,6 @@
 export default {
   avatarStore: {
-    searchName: '',
-    searchResults: [],
+    searchUsers: [],
     isSearchLoading: false
   }
 }

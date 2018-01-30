@@ -29,8 +29,9 @@
     ]
   },
   "dependencies": {
-    "material-ui": "1.0.0-beta.28",
+    "material-ui": "1.0.0-beta.31",
     "material-ui-icons": "1.0.0-beta.17",
+    "r2": "2.0.0",
     "react": "16.2.0",
     "react-dom": "16.2.0",
     "react-restore": "0.1.1",

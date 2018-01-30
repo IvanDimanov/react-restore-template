@@ -1,7 +1,3 @@
-export function testCommonAction1 () {
-  return 1
-}
-
-export function testCommonAction2 () {
-  return 2
+export function setAvatar (update, avatar) {
+  update('avatar', () => avatar)
 }

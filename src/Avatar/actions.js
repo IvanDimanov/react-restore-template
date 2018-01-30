@@ -1,17 +1,18 @@
+import r2 from 'r2'
+
+const MAX_RETURNED_RESULTS = 7
+
 async function searchForAvatar (update, searchName) {
   await update('avatarStore.isSearchLoading', () => true)
-  await new Promise((resolve) => setTimeout(resolve, 2000))
-  await update('avatarStore.searchName', () => `${searchName}A`)
+
+  const { items = []} = await r2(`https://api.github.com/search/users?q=${searchName}`).json
+
+  await update('avatarStore.searchUsers', () => items.slice(0, MAX_RETURNED_RESULTS))
   await update('avatarStore.isSearchLoading', () => false)
 }
 
-function clearSearch (update) {
-  update('avatarStore.searchName', () => '')
-}
-
 const avatarStore = {
-  searchForAvatar,
-  clearSearch
+  searchForAvatar
 }
 
 export { avatarStore }
