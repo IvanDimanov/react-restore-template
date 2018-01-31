@@ -7,16 +7,12 @@ import AppTemplate from './AppTemplate'
 
 const Home = () => import(/* webpackChunkName: "Home" */ './Home')
 const Avatar = () => import(/* webpackChunkName: "Avatar" */ './Avatar')
-const Contacts = () => import(/* webpackChunkName: "Contacts" */ './Contacts')
-const Projects = () => import(/* webpackChunkName: "Projects" */ './Projects')
 
 render(
   <Router>
     <AppTemplate>
       <Route exact path='/' component={() => <AsyncComponent moduleProvider={Home} />} />
-      <Route exact path='/Avatar' component={() => <AsyncComponent moduleProvider={Avatar} />} />
-      <Route exact path='/contacts' component={() => <AsyncComponent moduleProvider={Contacts} />} />
-      <Route exact path='/projects' component={() => <AsyncComponent moduleProvider={Projects} />} />
+      <Route exact path='/avatar' component={() => <AsyncComponent moduleProvider={Avatar} />} />
     </AppTemplate>
   </Router>,
   document.getElementById('app')

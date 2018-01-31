@@ -45,8 +45,6 @@ class Header extends PureComponent {
         <Typography className={classes.flex}>
           <LinkButton path='/' label='Home' />
           <LinkButton path='/avatar' label='Avatar' />
-          <LinkButton path='/contacts' label='Contacts' />
-          <LinkButton path='/projects' label='Projects' />
         </Typography>
 
         {(avatar || {}).id && (
