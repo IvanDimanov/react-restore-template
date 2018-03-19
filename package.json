@@ -13,6 +13,7 @@
   },
   "scripts": {
     "lint": "standard",
+    "test": "echo 'No tests available'; exit 0",
     "prebuild": "rimraf ./build",
     "build": "webpack --config webpack/webpack.config.production.js",
     "local-development": "webpack-dashboard -- webpack-dev-server --config webpack/webpack.config.development.js",
