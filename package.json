@@ -18,7 +18,7 @@
     "build": "webpack --config webpack/webpack.config.production.js",
     "local-development": "webpack-dashboard -- webpack-dev-server --config webpack/webpack.config.development.js",
     "start": "serve ./build",
-    "deploy": "now",
+    "deploy": "now && now alias",
     "prepush": "npm run lint"
   },
   "engines": {
@@ -30,6 +30,16 @@
       "notes",
       "build"
     ]
+  },
+  "now": {
+    "files": [
+      "src",
+      "webpack",
+      ".babelrc",
+      ".env"
+    ],
+    "dotenv": true,
+    "alias": "react-restore-template"
   },
   "dependencies": {
     "material-ui": "1.0.0-beta.31",

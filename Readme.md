@@ -1,8 +1,8 @@
 # React Restore template
 Production ready setup for React + Restore
 
-## [Live Demo](https://react-restore-template-pypbxsbtxf.now.sh)
-## [![App](https://raw.githubusercontent.com/IvanDimanov/restore-app-template/master/image.png)](https://react-restore-template-pypbxsbtxf.now.sh)
+## [Live Demo](https://react-restore-template.now.sh)
+## [![App](https://raw.githubusercontent.com/IvanDimanov/restore-app-template/master/image.png)](https://react-restore-template.now.sh)
 
 
 ## If you run ...
