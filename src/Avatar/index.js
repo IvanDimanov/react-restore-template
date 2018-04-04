@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-restore'
+import LazyLoad from 'react-lazy-load'
 import { withStyles } from 'material-ui/styles'
 
 import Grid from 'material-ui/Grid'
@@ -44,11 +45,13 @@ class Avatar extends PureComponent {
       key={index}
       className={classes.Card}
     >
-      <CardMedia
-        title={`Image of ${result.login}`}
-        image={result.avatar_url}
-        className={classes.CardMedia}
-      />
+      <LazyLoad height={styles.CardMedia.height}>
+        <CardMedia
+          title={`Image of ${result.login}`}
+          image={result.avatar_url}
+          className={classes.CardMedia}
+        />
+      </LazyLoad>
 
       <CardContent>
         <Typography type='headline' component='h2' noWrap>{result.login}</Typography>
